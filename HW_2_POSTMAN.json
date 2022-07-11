@@ -127,7 +127,16 @@
 							"});\r",
 							"console.log(typeof(salary_req, salary_resp));\r",
 							"//11. Вывести в консоль параметр family из response.\r",
-							"//12. Проверить что u_salary_1_5_year в ответе равно salary*4 (salary забрать из request)"
+							"\r",
+							"console.log(response.family);\r",
+							"\r",
+							"//12. Проверить что u_salary_1_5_year в ответе равно salary*4 (salary забрать из request)\r",
+							"\r",
+							"let u_salary_1_5_year_resp = response.family.u_salary_1_5_year;\r",
+							"pm.test(\"Check u_salary_1_5_year response = salary from request*4\", function() {\r",
+							"    pm.expect(u_salary_1_5_year_resp).to.eql(salary_req*4)\r",
+							"});\r",
+							"console.log(salary_req*4, typeof(salary_req),u_salary_1_5_year_resp, typeof(u_salary_1_5_year_resp) );"
 						],
 						"type": "text/javascript"
 					}
