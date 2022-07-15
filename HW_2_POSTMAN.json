@@ -318,9 +318,42 @@
 					]
 				}
 			},
-			"response": []
-		}
-	],
+			"response": [{
+    "age": "29",
+    "family": {
+        "children": [
+            [
+                "Alex",
+                24
+            ],
+            [
+                "Kate",
+                12
+            ]
+        ],
+        "pets": {
+            "cat": {
+                "age": 3,
+                "name": "Sunny"
+            },
+            "dog": {
+                "age": 4,
+                "name": "Luky"
+            }
+        },
+        "u_salary_1_5_year": 3200
+    },
+    "name": "Leonid",
+    "salary": 800
+}],
+		
+
+	"info": {
+		"_postman_id": "bf495223-b0fb-4cc2-8158-d5b163ff32cf",
+		"name": "HW_2_EP_4_object_info_4_TESTS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18525895"
+	},
 	"info": {
 		"_postman_id": "bf495223-b0fb-4cc2-8158-d5b163ff32cf",
 		"name": "HW_2_EP_4_object_info_4_TESTS",
@@ -361,7 +394,7 @@
 							"//6. Проверить, что age в ответе равно age из request (age забрать из request.)\r",
 							"\r",
 							"let age_resp = response.age;\r",
-							"let age_req = request_params.age;\r",
+							"let age_req = +request_params.age;\r",
 							"pm.test('Check age response = age request', function() {\r",
 							"    pm.expect(age_resp).to.eql(age_req)\r",
 							"});\r",
@@ -369,41 +402,41 @@
 							"//7. Вывести в консоль параметр salary из request.\r",
 							"\r",
 							"let salary_req = request_params.salary;\r",
-							"console.log(\"salary_from_request\" + salary_req);\r",
+							"console.log(\"salary_from_request\" + ' ' + salary_req);\r",
 							"\r",
 							"//8. Вывести в консоль параметр salary из response.\r",
 							"\r",
 							"let salary_resp = response.salary;\r",
-							"console.log(\"salary_from_response\" + salary.resp);\r",
+							"console.log(\"salary_from_response\" + ' ' + salary_resp);\r",
 							"\r",
 							"//9. Вывести в консоль 0-й элемент параметра salary из response.\r",
 							"\r",
-							"console.log(\"salary[0] from response\" + salary_resp[0]);\r",
+							"console.log(\"salary[0] from response\" + ' ' + salary_resp[0]);\r",
 							"\r",
 							"//10. Вывести в консоль 1-й элемент параметра salary параметр salary из response.\r",
 							"\r",
-							"console.log(\"salary[1] from response\" + salary_resp[1]);\r",
+							"console.log(\"salary[1] from response\" + ' ' + salary_resp[1]);\r",
 							"\r",
 							"//11. Вывести в консоль 2-й элемент параметра salary параметр salary из response.\r",
 							"\r",
-							"console.log(\"salary[2] from response\" + salary_resp[2]);\r",
+							"console.log(\"salary[2] from response\" + ' ' + salary_resp[2]);\r",
 							"\r",
 							"//12. Проверить, что 0-й элемент параметра salary равен salary из request (salary забрать из request.)\r",
 							"\r",
 							"pm.test('Check salary[0] response = salary request', function() {\r",
-							"    pm.expect(salary_resp[0]).to.eql(salary_req)\r",
+							"    pm.expect(salary_resp[0]).to.eql(+salary_req)\r",
 							"});\r",
 							"\r",
 							"//13. Проверить, что 1-й элемент параметра salary равен salary*2 из request (salary забрать из request.)\r",
 							"\r",
-							"pm.test(\"Check slary[1] response = salary request * 2 \", function() {\r",
-							"    pm.expect(salary_req[1]).to.eql(salary_resp*2)\r",
+							"pm.test(\"Check salary[1] response = salary request * 2 \", function() {\r",
+							"    pm.expect(+salary_resp[1]).to.eql(salary_req*2)\r",
 							"});\r",
 							"\r",
 							"//14. Проверить, что 2-й элемент параметра salary равен salary*3 из request (salary забрать из request.)\r",
 							"\r",
 							"pm.test(\"Check salary[2] response = salary request * 3\", function() {\r",
-							"    pm.expect(salary_resp[2]).to.eql(salary_req*3)\r",
+							"    pm.expect(+salary_resp[2]).to.eql(salary_req*3)\r",
 							"});\r",
 							"\r",
 							"//15. Создать в окружении переменную name\r",
@@ -474,7 +507,15 @@
 					]
 				}
 			},
-			"response": []
+			"response": {
+				"age": 29,
+				"name": "Leonid",
+				"salary": [
+					800,
+					"1600",
+					"2400"
+				]
+			}
 		}
 	],
 	
